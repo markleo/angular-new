@@ -14,4 +14,5 @@ angular.module('angularNewsApp')
       'AngularJS',
       'Karma'
     ];
+    $scope.abc = 'asd';
   });
