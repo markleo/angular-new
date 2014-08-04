@@ -1,10 +1,9 @@
-<ul ng-repeat="post in posts"> 
-	<li><a ng-click="delPost($index)">[x]</a>  -- <a href="{{post.url}}">{{ post.title }}</a></li>
+<ul ng-repeat="(postId, post) in posts"> 
+	<li><a ng-click="delPost(postId)">[x]</a>  -- <a href="{{post.url}}">{{ post.title }}</a> --- <a href="#/post/{{postId}}">comments</a></li>
 </ul>
 <form ng-submit="addPost()">
 	<input type="text" ng-model="post.title" />
 	<input type="text" ng-model="post.url" />
 	<input type="submit" value="Add">
 </form>
-Posts: {{ posts }}<br />
 Post: {{ post }}
