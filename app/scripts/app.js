@@ -14,7 +14,8 @@ var app = angular.module('angularNewsApp', [
               'ngResource',
               'ngRoute',
               'ngSanitize',
-              'ngTouch'
+              'ngTouch',
+              'firebase'
             ]);
 app.config(function ($routeProvider) {
       $routeProvider
@@ -30,7 +31,13 @@ app.config(function ($routeProvider) {
           templateUrl: 'views/posts.html',
           controller: 'PostsCtrl'
         })
+        .when('/post/:postId', {
+          templateUrl: 'views/showpost.html',
+          controller: 'PostViewCtrl'
+        })
         .otherwise({
           redirectTo: '/'
         });
     });
+
+app.constant('FIREBASE_URL', 'https://luminous-fire-8835.firebaseio.com/');
